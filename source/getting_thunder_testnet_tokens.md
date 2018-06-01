@@ -1,0 +1,1 @@
+# Getting Thunder testnet tokens
