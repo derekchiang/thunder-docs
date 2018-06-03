@@ -31,53 +31,57 @@ To make it easier to get started with Thunder, we've created a template for Thun
 Go ahead and create an empty directory.  Then inside the directory, run:
 
 ```
-truffle unbox thunder
+truffle unbox thundertoken/dapp-tutorial
 ```
 
-It may take a minute or two.  Once it's done, feel free to explore the directory to see what we have.
+It may take a minute or two.  Once it's done, feel free to explore the directory to see what we have got.
 
-## Compile and deploy the smart contracts
+In the following sections, unless otherwise specified, all commands should be run within this directory.
 
-Now you are ready to develop your DApp!
+## Launching a local blockchain
 
-Firstly, let's launch a local blockchain through ganache.  In a new terminal window, run:
+As aforementioned, during development it's recommended to use a local blockchain.  To launch a local blockchain, simply run the following command in a new terminal:
 
 ```
 ganache-cli
 ```
 
-You are going to see some console printout.  One of the lines is going to look something like:
+You are going to see some console printout.  One of the lines towards the end is going to look something like:
 
 ```
 Mnemonic:      urge club joy arrow finish false then ocean stereo stock this giraffe
 ```
 
-Copy the mnemonic for later use.
+Go ahead and copy the mnemonic.  We will need to use it later.
 
-Now, in another terminal window, run:
+Now that we have a local blockchain running, let's try deploying our smart contracts on it.  In a new terminal, run:
 
 ```
-truffle compile
 truffle deploy
 ```
 
-The first command compiles the smart contracts, and the second one deploys them, as the names indicate.
+If the command finishes running without any errors, the smart contracts have been deployed!
 
-Since we are running a local blockchain, we need to configure MetaMask to use it.  Go ahead and click the fox icon in your browser again, then:
+Lastly, we will now configure MetaMask so it uses the local blockchain:
 
-* Click the menu icon on the upper right corner of the dropdown.
+* Click the MetaMask fox icon in your browser.
+* Click the network dropdown and select "Localhost 8545"
+* Click the menu icon on the upper right corner.
 * Click "Log Out".
 * Click "Restore from seed phrase".
-* Paste in the mnemonic that you got from ganache, then pick a password.  Then click "OK".
+* Paste the mnemonic that you just copied, then put in some password.  Then click "OK".
 
-If everything goes well, you should now be seeing an account with a large balance like 99.  These are fake tokens provided by the local blockchain for development purposes.
+If everything goes right, you should see that you have 100ETH.  Woah!  But keep in mind these are just tokens on your local blockchain and don't have real value.
 
 ## Launch the DApp
 
-Now that our smart contracts are running on the blockchain, let's get our DApp up and running.  In a new terminal window, run:
+Now that we've launched a local blockchain, deployed a smart contract, and connected MetaMask with the local blockchain, we can finally launch our DApp!
+
+In a new terminal window, run:
 
 ```
-cd client && npm run start
+cd client
+npm run start
 ```
 
 Now, go to `http://localhost:3000`.  You should be seeing a page with the title `MyToken`.
@@ -88,7 +92,7 @@ So what's this DApp about?  It's essentially launching your own ICO, or initial 
 
 If you look at your balance, you should see that you have `1000000` tokens already.  We will get to the reason why later.  For now, let's try sending the tokens to someone else.  Since this is a local blockchain, we don't really have other people to send to.  Fortunately it's easy enough to create a new address on a blockchain, so let's do just that:
 
-- Click the fox icon in your browser.
+- Click the MetaMask icon in your browser.
 - Click the accounts button, which is the first button in the upper right corner.
 - Click "Create Account".
 
@@ -125,7 +129,7 @@ It was very cool launching your own token.  However, it's no fun if you can only
 
 The first thing we need to do is to connect MetaMask with the Thunder testnet.  Here are the steps:
 
-- Click the MetaMask fox icon.
+- Click the MetaMask fox icon in your browser.
 - Log out of your current account (which is provided by the local blockchain) by clicking the menu button, and then click "Log Out".
 - Click "Restore from seed phrase" again and restore your original account with your original seed phrase.
 - Click the dropdown that says "Private Network".
@@ -136,7 +140,7 @@ With any luck, you should see that your account has been refreshed with a balanc
 
 ## Getting Thunder testnet tokens
 
-Head straight to "https://testnet.thundertoken.com".
+Head straight to "https://testnet.thundertoken.com"...
 
 ## Deploying the DApp on Thunder testnet
 
@@ -165,6 +169,16 @@ But wait, you might say, how do people use my tokens if the DApp is running on `
 
 Head to github and create a new repo.  You should name the repo after your token, since your DApp will eventually be available at `https://<username>.github.io/<repo-name>`.
 
+Once you've created the repo, push your code into the repo.  The steps are roughly as follows:
+
+```
+git init
+git add .
+git commit -m "Init"
+git remote add origin <your-repo-url>
+git push -u origin master
+```
+
 Once that's done, open up `package.json` in your favorite editor and edit the `homepage` field to look like the following:
 
 ```
@@ -175,7 +189,7 @@ Once that's done, open up `package.json` in your favorite editor and edit the `h
 
 You want to replace `<username>` with your actual github username and `<repo-name>` with your actual repo name.
 
-Finally, simply run:
+Finally, go into the `client/` subdirectory and run:
 
 ```
 npm run deploy
