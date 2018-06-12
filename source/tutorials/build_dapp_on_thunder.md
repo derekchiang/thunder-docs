@@ -71,9 +71,9 @@ Lastly, we will now configure MetaMask so it uses the local blockchain:
 * Click "Restore from seed phrase".
 * Paste the mnemonic that you just copied, then put in some password.  Then click "OK".
 
-If everything goes right, you should see that you have 100ETH.  Woah!  But keep in mind these are just tokens on your local blockchain and don't have real value.
+If everything goes right, you should see that you have around 100ETH.  Woah!  But keep in mind these are just tokens on your local blockchain and don't have real value.
 
-## Launch the DApp
+## Launching the DApp
 
 Now that we've launched a local blockchain, deployed a smart contract, and connected MetaMask with the local blockchain, we can finally launch our DApp!
 
@@ -104,7 +104,7 @@ Now, you should see that the balance shown in the web page has been reduced by t
 
 ## Updating the DApp
 
-So we've just launched our first token, which is very cool.  However, it'd be cooler if we could give the token a cool name as opposed to a generic name like `MyToken`.
+So we've just launched our first token, which is very cool.  However, it'd be cooler if we could give the token a real name as opposed to a generic name like `MyToken`.
 
 Open the file `contracts/Token.sol` in your favorite editor.  Even if you are not already familiar with Solidity (the smart contract programming language), you can probably make sense of the code:
 
@@ -121,7 +121,7 @@ truffle compile
 truffle deploy --reset
 ```
 
-Now go back to the DApp.  You should see your new token now.
+Now go back to the DApp and make sure you are using Account 1 in MetaMask.  You should see your new token with the amount you specified as the initial supply.
 
 ## Connecting to the Thunder testnet
 
