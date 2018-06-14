@@ -146,7 +146,7 @@ Head straight to "https://testnet.thundertoken.com"...
 
 We've made it very easy to deploy on the Thunder testnet.  Go back to the code directory and open `truffle.js` in your favourite editor.  Edit the first line to use your actual mnemonic, such as this:
 
-```
+```javascript
 // This is just an example!!  You want to use your actual mnemonic.
 let mnemonic = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
 ```
@@ -181,7 +181,7 @@ git push -u origin master
 
 Once that's done, open up `package.json` in your favorite editor and edit the `homepage` field to look like the following:
 
-```
+```javascript
 {
   "homepage": "https://<username>.github.io/<repo-name>",
 }

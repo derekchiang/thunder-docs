@@ -16,7 +16,7 @@ npm install truffle-hdwallet-provider
 
 Open up `truffle.js` (or `truffle-config.js` if you are using Windows) and add the following code to the top of the file:
 
-```
+```javascript
 let HDWalletProvider = require('truffle-hdwallet-provider')
 let mnemonic = "<the mnemonic for your private key>"
 ```
@@ -25,7 +25,7 @@ Note that the `mnemonic` variable needs to be set to a real mnemonic.
 
 Now, in your module exports, include a `thunder` section under the `networks` section, like the following:
 
-```
+```javascript
 module.exports = {
   networks: {
     thunder: {
